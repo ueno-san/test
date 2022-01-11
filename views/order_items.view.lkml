@@ -9,14 +9,14 @@ view: order_items {
   }
 
   dimension:create_aa  {
-    type: string
-    sql: ${created_date} ;;
+    type: date
+    sql: ${created_raw} ;;
     group_label: "作成日"
     group_item_label: "日"
   }
   dimension: create_month_name {
-    type: string
-    sql: ${created_month} ;;
+    type: date_month
+    sql: ${created_raw} ;;
     group_label: "作成日"
     group_item_label: "月"
   }
@@ -210,7 +210,7 @@ view: order_items {
   }
   measure: Total_Sales_Price {
     type: sum
-    sql: sum(${sale_price}) ;;
+    sql: ${sale_price} ;;
   }
 
   measure: Average_Sale_Price {
